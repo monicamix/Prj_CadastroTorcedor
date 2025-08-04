@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Torcedor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 Cadastro de Torcedor</h1>
+        <form id="torcedorForm">
+            
+            <!-- Nome -->
+            <label for="nome">Nome completo:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required pattern="[a-zA-Z]+" onkeypress="return /[a-z]/i.test(event.key)">
+        
+
+            <!-- Idade -->
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" name="idade" min="1" placeholder="Ex: 25" required>
+
+            <!-- Celular -->
+            <label for="celular">Celular com DDD:</label>
+            <input type="tel" id="celular" name="celular" placeholder="(99) 99999-9999" required pattern="\(\d{2}\) \d{5}-\d{4}" onkeypress="return /[0-9() -]/.test(event.key)">
+
+            <!-- Time de coração -->
+            <label for="time">Time de Coração:</label>
+            <input type="text" id="time" name="time" placeholder="Ex: Flamengo" required>
+
+            <!-- Sócio torcedor -->
+            <label>É sócio torcedor?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="socio" value="Sim" required> Sim</label>
+                <label><input type="radio" name="socio" value="Não" required> Não</label>
+            </div>
+
+            <!-- Aceita receber SMS -->
+            <label>Aceita receber SMS de notícias?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="sms" value="Sim" required> Sim</label>
+                <label><input type="radio" name="sms" value="Não" required> Não</label>
+            </div>
+
+            <!-- Frequência ao estádio -->
+            <label for="frequencia">Frequência ao estádio:</label>
+            <select id="frequencia" name="frequencia" required>
+                <option value="">Selecione...</option>
+                <option value="1 vez por mês">1 vez por mês</option>
+                <option value="3 vezes por mês">3 vezes por mês</option>
+                <option value="Mais de 3 vezes">Mais de 3 vezes</option>
+            </select>
+
+            <!-- Botão de envio -->
+            <button type="submit">Enviar Cadastro</button>
+        </form>
+
+        <!-- Mensagem de retorno -->
+        <p id="mensagem"></p>
+    </div>
+
+</body>
+</html>
