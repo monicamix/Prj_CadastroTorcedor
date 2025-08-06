@@ -31,7 +31,7 @@ body {
 }
 
 .container::after {
-    content: "🏟️";
+    content: "🏔️";
     position: absolute;
     font-size: 40px;
     bottom: -20px;

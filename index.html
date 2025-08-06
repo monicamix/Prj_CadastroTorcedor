@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,52 @@
     <link rel="stylesheet" href="style.css">
     <script src="./script.js" defer></script>
 </head>
+
 <body>
     <div class="container">
         <h1>🏆 Cadastro de Torcedor</h1>
-        <form id="torcedorForm">
-            
+        <form action="index.html" method="GET">
+
             <!-- Nome -->
-            <label for="nome">Nome completo:</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required pattern="[a-zA-Z]+" onkeypress="return /[a-z]/i.test(event.key)">
-        
+            <div>
+                <label for="nome">Nome completo:</label>
+                <input type="text" class="nome" name="nome" placeholder="Digite seu nome" required pattern="[a-zA-Z]+"
+                    onkeypress="return /[a-z]/i.test(event.key)">
+            </div>
 
             <!-- Idade -->
-            <label for="idade">Idade:</label>
-            <input type="number" id="idade" name="idade" min="1" placeholder="Ex: 25" required>
+            <div class="form-container__group"> 
+                <label for="idade" class="form-container__label">Idade:</label>
+                <input type="number" id="idade" name="idade" class="form-container__input idade" placeholder="Ex: 25"
+                    min="18" max="130" required>
+            </div>
 
             <!-- Celular -->
-            <label for="celular">Celular com DDD:</label>
-            <input type="tel" id="celular" name="celular" placeholder="(99) 99999-9999" required pattern="\(\d{2}\) \d{5}-\d{4}" onkeypress="return /[0-9() -]/.test(event.key)">
-
+            <div>
+                <label for="celular">Celular com DDD:</label>
+                <input type="text" class="celular" name="celular" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
+            " type="number" maxlength="11" placeholder="Ex: 99 99999-9999" required pattern="\d{11}">
+            </div>
             <!-- Time de coração -->
-            <label for="time">Time de Coração:</label>
-            <input type="text" id="time" name="time" placeholder="Ex: Flamengo" required>
+            <div class="form-container__group">
+                <label for="time" class="form-container__label">Time de Coração:</label>
+                <select id="time" name="time" class="form-container__input" required>
+                    <option value="">Selecione seu time...</option>
+                    <option value="Atlético Mineiro">Atlético Mineiro</option>
+                    <option value="Botafogo">Botafogo</option>
+                    <option value="Corinthians">Corinthians</option>
+                    <option value="Cruzeiro">Cruzeiro</option>
+                    <option value="Flamengo">Flamengo</option>
+                    <option value="Fluminense">Fluminense</option>
+                    <option value="Grêmio">Grêmio</option>
+                    <option value="Internacional">Internacional</option>
+                    <option value="Palmeiras">Palmeiras</option>
+                    <option value="Santos">Santos</option>
+                    <option value="São Paulo">São Paulo</option>
+                    <option value="Vasco da Gama">Vasco da Gama</option>
+                </select>
+            </div>
+
 
             <!-- Sócio torcedor -->
             <label>É sócio torcedor?</label>
@@ -43,15 +69,17 @@
                 <label><input type="radio" name="sms" value="Não" required> Não</label>
             </div>
 
-            <!-- Frequência ao estádio -->
-            <label for="frequencia">Frequência ao estádio:</label>
-            <select id="frequencia" name="frequencia" required>
-                <option value="">Selecione...</option>
-                <option value="1 vez por mês">1 vez por mês</option>
-                <option value="3 vezes por mês">3 vezes por mês</option>
-                <option value="Mais de 3 vezes">Mais de 3 vezes</option>
-            </select>
 
+            <!-- Frequência ao estádio -->
+            <div class="form-container__group">
+                <label for="frequencia" class="form-container__label">Frequência ao estádio:</label>
+                <select id="frequencia" name="frequencia" class="form-container__input" required>
+                    <option value="">Selecione...</option>
+                    <option value="1 vez por mês">1 vez por mês</option>
+                    <option value="3 vezes por mês">3 vezes por mês</option>
+                    <option value="Mais de 3 vezes">Mais de 3 vezes</option>
+                </select>
+            </div>
             <!-- Botão de envio -->
             <button type="submit">Enviar Cadastro</button>
         </form>
@@ -61,4 +89,5 @@
     </div>
 
 </body>
+
 </html>
